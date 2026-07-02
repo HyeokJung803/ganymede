@@ -23,13 +23,13 @@ public class DataSeeder implements CommandLineRunner {
     add("Atelier Mini Bag", "Deep green compact bag finished with warm metal hardware.", "980000", Category.BAGS, true, "/images/products/atelier-mini.svg");
     add("Silk Signature Scarf", "Ivory silk scarf with an original abstract border motif.", "360000", Category.ACCESSORIES, false, "/images/products/silk-scarf.svg");
     add("Classic Leather Loafer", "Polished black loafer shaped for everyday ceremony.", "720000", Category.SHOES, false, "/images/products/classic-loafer.svg");
-    add("Cashmere Long Coat", "Camel wool cashmere coat with a soft architectural drape.", "2450000", Category.APPAREL, true, "/images/products/cashmere-coat.svg");
+    add("Ganymede Black Coat", "Black wool coat with a subtle gold GANYMEDE chest crest.", "2450000", Category.APPAREL, true, "/images/products/ganymede-black-coat.png", "/images/products/ganymede-black-coat-model.png");
     add("Minimal Gold Bracelet", "Slim bracelet with a restrained high-polish finish.", "540000", Category.ACCESSORIES, false, "/images/products/gold-bracelet.svg");
     add("Burgundy Compact Wallet", "Small grained leather wallet in a deep burgundy tone.", "420000", Category.ACCESSORIES, false, "/images/products/burgundy-wallet.svg");
-    add("Soft Cashmere Knit", "Cream cashmere knit with a clean neckline and relaxed fit.", "690000", Category.APPAREL, false, "/images/products/cashmere-knit.svg");
+    add("Ganymede Black Knit", "Black oversized knit with a subtle gold GANYMEDE chest crest.", "690000", Category.APPAREL, false, "/images/products/ganymede-black-knit.png", "/images/products/ganymede-black-knit-model.png");
   }
 
-  private void add(String name, String description, String price, Category category, boolean isNew, String imageUrl) {
+  private void add(String name, String description, String price, Category category, boolean isNew, String imageUrl, String... extraImageUrls) {
     Product product = new Product();
     product.setName(name);
     product.setDescription(description);
@@ -43,6 +43,13 @@ public class DataSeeder implements CommandLineRunner {
     image.setImageUrl(imageUrl);
     image.setSortOrder(1);
     product.getImages().add(image);
+    for (int i = 0; i < extraImageUrls.length; i++) {
+      ProductImage extraImage = new ProductImage();
+      extraImage.setProduct(product);
+      extraImage.setImageUrl(extraImageUrls[i]);
+      extraImage.setSortOrder(i + 2);
+      product.getImages().add(extraImage);
+    }
     productRepository.save(product);
   }
 }
