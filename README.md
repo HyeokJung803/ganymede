@@ -1,4 +1,9 @@
 # GANY
+<img width="1905" height="910" alt="image" src="https://github.com/user-attachments/assets/e58e3250-67e6-45e1-a5e0-4b7ed989a048" />
+<img width="1902" height="834" alt="image" src="https://github.com/user-attachments/assets/7198193c-e3c6-4023-984c-f13f3e518f18" />
+<img width="1913" height="906" alt="image" src="https://github.com/user-attachments/assets/ce527850-ed32-42b0-8aa0-b6853a473e25" />
+
+
 
 GANY는 가상의 명품 온라인 스토어 프로젝트입니다. Spring Boot, React, MySQL, JPA, Spring Security, JWT를 사용합니다.
 
