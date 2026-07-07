@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #14110f;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #14110f;
+
+  --color-muted: #f6f6f5;
+  --color-muted-foreground: #6b6560;
+
+  --color-charcoal: #2b2825;
+  --color-charcoal-foreground: #f7f6f4;
+
+  --color-accent: #a1854f;
+  --color-accent-strong: #8a6f3d;
+  --color-accent-foreground: #ffffff;
+
+  --color-border: #e7e5e1;
+  --color-border-strong: #d6d3cd;
+  --color-input: #e7e5e1;
+  --color-ring: #a1854f;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 0px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: var(--color-charcoal);
+    color: var(--color-charcoal-foreground);
+  }
+
+  /* Thin, elegant scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted-foreground);
+  }
+}
+
+@layer utilities {
+  .tracking-luxe {
+    letter-spacing: 0.28em;
+  }
+  .tracking-wide-sm {
+    letter-spacing: 0.14em;
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
